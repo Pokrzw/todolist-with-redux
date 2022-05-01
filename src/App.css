@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+  margin: 0;
+  padding: 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App>h1{
+  color: white;
+  border-bottom: 2px dotted white;
+  width: fit-content;
+}
+.App>.taskCreation>h3{
+  color: white;
+}.App>.completed>h3{
+  color: white;
+}
+
+.App>.taskCreation>input{
+  padding: 2px;
+}
+.App>.tasklist>ul{
+  list-style-type: none;
+}
+.TaskTemplate{
+  width: 80vh;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(240, 221, 113);
+  border-radius: 5px;
+}
+
+.TaskTemplate>p{
+  padding: 0 10px;
+}
+
+.TaskTemplate>button:first-child{
+  height: 30px;
+  width: 30px;
+  border: 4px solid rgb(58, 58, 58);
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.TaskTemplate>button:first-child:hover{
+  background-color: rgb(176, 224, 103);
+  border: 4px solid rgb(87, 121, 37);
+}
