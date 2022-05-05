@@ -1,9 +1,9 @@
 import '../App.css'
-const TaskTemplate = () => {
+const TaskTemplate = ({task}) => {
     return ( 
         <div className="TaskTemplate">
             <button></button>
-            <p>Zadanie do zobienia</p>
+            <p>{task}</p>
             <button>Usun</button>
         </div>
      );

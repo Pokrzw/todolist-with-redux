@@ -1,20 +1,23 @@
 import './App.css';
 import TaskTemplate from './components/TaskTemplate';
+import TaskForm from './components/TaskForm';
+import {useSelector} from 'react-redux'
+import { useEffect } from 'react';
 
-function App() {
+function App({store}) {
+  const addedTasks = useSelector(state => state)
+
   return (
     <div className="App">
       <h1>Todo list</h1>
-      <div className="taskCreation">
-        <h3>Create a task</h3>
-        <input type="text"/>
-        <button>Add task</button>
-      </div>
+        <TaskForm/>
       <div className="tasklist">
+        {console.log(addedTasks)}
         <ul>
           <li>
-          <TaskTemplate/>
-          <TaskTemplate/>
+          { addedTasks.map(task => {
+            return <TaskTemplate key={task.id} task={task.task}/>
+          })}
           </li>
         </ul>
       </div>
