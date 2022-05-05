@@ -2,7 +2,7 @@ import './App.css';
 import TaskTemplate from './components/TaskTemplate';
 import TaskForm from './components/TaskForm';
 import {useSelector} from 'react-redux'
-import { useEffect } from 'react';
+
 
 function App({store}) {
   const addedTasks = useSelector(state => state)
@@ -13,16 +13,33 @@ function App({store}) {
         <TaskForm/>
       <div className="tasklist">
         {console.log(addedTasks)}
-        <ul>
-          <li>
+        <ul>          
           { addedTasks.map(task => {
-            return <TaskTemplate key={task.id} task={task.task}/>
+            if(task.completed===false){
+              return (
+                <li>
+                      <TaskTemplate key={task.id} task={task.task} id={task.id}/>
+                </li>      
+                      )
+            }
           })}
-          </li>
         </ul>
       </div>
-      <div className="completed">
+      <div className="tasklist">
         <h3>Completed Tasks</h3>
+        <ul>
+        { addedTasks.map(task => {
+            
+            if(task.completed!==false){
+              return (
+                <li>
+                      <TaskTemplate key={task.id} task={task.task} id={task.id}/>
+                    </li>  
+                      )
+            }
+          })}
+        </ul>
+        
       </div>
     </div>
   );

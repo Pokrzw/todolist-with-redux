@@ -1,10 +1,18 @@
 import '../App.css'
-const TaskTemplate = ({task}) => {
+import { useDispatch } from 'react-redux'
+import { completeTask, removeTask } from '../ducks/taskActions';
+
+const TaskTemplate = ({task, id}) => {
+    const dispatch = useDispatch()
     return ( 
         <div className="TaskTemplate">
-            <button></button>
+            <button onClick={() => {
+                dispatch(completeTask(id))
+            }}></button>
             <p>{task}</p>
-            <button>Usun</button>
+            <button onClick={()=>{
+                dispatch(removeTask(id))
+            }}>Usun</button>
         </div>
      );
 }
